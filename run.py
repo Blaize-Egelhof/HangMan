@@ -1,7 +1,12 @@
 #Need to import this Python Random Module , how the functions worked I got from https://www.w3schools.com/python/module_random.asp
 import random 
+#Time Module to pause between some functions function 
+import time
 #Pull the list variable containing all my words
 from random_words import random_word_list 
+
+#Global variable to keep track of the users guess attempts
+user_attempts = 6
 
 def extract_random_word(): 
     '''
@@ -14,36 +19,119 @@ def welcome_player():
     '''
     Simple function to welcome the player
     '''
-
     print("Welcome to my HangMan game!")
     print("Please enter your Name below , please dont use any numbers and ensure theres no spaces in your name.")
 
 
 def check_users_inputted_name(): 
     '''
-    Function to check users name inputs , logic is to check if the input answer isnt nothing OR if iterate over the users answer and check if each iteration is either a number or a blank space, if either is encountered , the any() returns true forcing the loop to action all code in the if statement until false is given , allowing the else function to work, inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
+    Function to check users name inputs , logic is to check if the input answers length isnt nothing OR if iterate over the users answer and check if each iteration is either a number or a blank space, if either is encountered , the any() returns true forcing the loop to action all code in the if statement until false is given , allowing the else function to work, inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
     '''
     while True: 
         user_name = input("Please enter your name here: ")
         if len(user_name) == 0 or any(char.isdigit() or char.isspace() for char in user_name):
             print(f"Invalid name, please re-enter your name without any numbers or blank spaces, you entered: {user_name}")
         else:
-            print("Valid name, please proceed.")
+            print("Valid name, proceding...")
             return user_name
             
-
-
-        
-
-
-
-
-
-
+def rules_of_the_game(users_name): 
+    '''
+    Function to display rules to users
+    '''
+    print(f"Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round! \n Thank you for playing my game,{users_name} please enjoy!")
+    time.sleep(3)
 
 
 
+def main():
+    random_word = extract_random_word()
+    welcome_player()
+    valid_name = check_users_inputted_name()
+    print(f"Hello {valid_name}!")
+    rules_of_the_game(valid_name)
 
-random_word = extract_random_word()
-welcome_player()
-check_users_inputted_name()
+
+
+def display_hangman():
+
+    '''
+    Function to visually show current HangMan status based on users attempts, this function was taken , then modifed from https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py
+    '''
+   stages = [
+        """
+          +---+
+              |
+              |
+              |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+              |
+              |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+              |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+          |   |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+         /|   |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+         /|\\  |
+              |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+         /|\\  |
+         /    |
+              |
+        ==========
+        """,
+        """
+          +---+
+          |   |
+          O   |
+         /|\\  |
+         / \\  |
+              |
+        ==========
+        """
+    ]
+
+
+main()
