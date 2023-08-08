@@ -42,7 +42,7 @@ def rules_of_the_game(users_name):
     Function to display rules to users
     '''
     print(f"Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round! \n Thank you for playing my game,{users_name} please enjoy!")
-    time.sleep(3)
+    time.sleep(0)
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
 
@@ -61,27 +61,50 @@ def show_word_and_hangman(random_word):
     '''
     Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user
     '''
+    user_answers_list = set()
     print(stages[0])
     word_place_holder = ["#" for _ in random_word]
-    print(f"The length of this word is:{len(random_word)}")
-    print(word_place_holder)
-    check_users_inputted_answers()
+    print(f"The length of this word is, {len(random_word)} characters long")
+    print(" ".join(word_place_holder))
+    validated_answer = check_users_inputted_answers()
+    check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
     
+
+def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
+    '''
+    Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
+    '''
+    if users_answer in user_answers_list:
+        print(f"You have already used the letter{user_answers_list}")
+        global user_attempts
+        user_attempts -=
+        print(f'You have {user_attempts}remaining')
+        return 
+    user_answers_list.add(users_answer)
+
+    if users_answer in word_to_guess: 
+        print(f"Correct! {users_answer} is in the word")
+        for x,y in enumerate(word_to_guess)
+            if y == users_answer:
+                hidden_word[x] = users_answers
+                print(hidden_word)
 
 
 
 def check_users_inputted_answers():
+    '''
+    Check if input is a 1 letter answer , will continue looping if theres 0 or more than 1 letter in the users answer , and if theres any spaces or digits present , if not then the loop breaks.
+    '''
 
     while True: 
-    user_name = input("Please enter your name here: ")
-    if len(user_name) == 0 or any(char.isdigit() or char.isspace() for char in user_name):
-        print(f"Invalid name, please re-enter your name without any numbers or blank spaces, you entered: {user_name}")
-    else:
-        print("Valid name, proceding...")
-        return user_name
+        users_answer = input("Please input your one letter answer here:")
+        if (len(users_answer) != 1 ) or any(char.isdigit() or char.isspace() for char in users_answer):
+            print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
+        else:
+            print("Valid answer, proceding...")
+            break
+    return users_answer
 
 
-
-
-
+def show_hangman_based_on_tries_left()
 main()
