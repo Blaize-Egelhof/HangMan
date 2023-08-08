@@ -61,6 +61,8 @@ def show_word_and_hangman(random_word):
     '''
     Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user
     '''
+
+    #INSERT A FOR LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
     user_answers_list = set()
     print(stages[0])
     word_place_holder = ["#" for _ in random_word]
@@ -77,17 +79,22 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     if users_answer in user_answers_list:
         print(f"You have already used the letter{user_answers_list}")
         global user_attempts
-        user_attempts -=
+        user_attempts -= 1
+        #INSERT FUNCTION TO SHOW HANGMAN 
         print(f'You have {user_attempts}remaining')
         return 
     user_answers_list.add(users_answer)
 
     if users_answer in word_to_guess: 
         print(f"Correct! {users_answer} is in the word")
-        for x,y in enumerate(word_to_guess)
+        for x,y in enumerate(word_to_guess):
             if y == users_answer:
                 hidden_word[x] = users_answers
                 print(hidden_word)
+
+    else:
+        print(f"Bad guess! The letter {users_answer} is not in the word.")
+        #INSERT FUNCTION TO SHOW HANGMAN
 
 
 
@@ -106,5 +113,5 @@ def check_users_inputted_answers():
     return users_answer
 
 
-def show_hangman_based_on_tries_left()
+
 main()
