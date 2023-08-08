@@ -68,8 +68,9 @@ def show_word_and_hangman(random_word):
     word_place_holder = ["#" for _ in random_word]
     print(f"The length of this word is, {len(random_word)} characters long")
     print(" ".join(word_place_holder))
-    validated_answer = check_users_inputted_answers()
-    check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
+    while user_attempts > 0:
+        validated_answer = check_users_inputted_answers()
+        check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
     
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
@@ -77,7 +78,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
     if users_answer in user_answers_list:
-        print(f"You have already used the letter{user_answers_list}")
+        print(f"You have already used the letter{users_answer}")
         global user_attempts
         user_attempts -= 1
         #INSERT FUNCTION TO SHOW HANGMAN 
@@ -89,7 +90,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         print(f"Correct! {users_answer} is in the word")
         for x,y in enumerate(word_to_guess):
             if y == users_answer:
-                hidden_word[x] = users_answers
+                hidden_word[x] = users_answer
                 print(hidden_word)
 
     else:
