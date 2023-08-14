@@ -120,17 +120,14 @@ def check_users_inputted_answers():
     '''
     Check if input is a 1 letter answer , will continue looping if theres 0 or more than 1 letter in the users answer , and if theres any spaces or digits present , if not then the loop breaks.
     '''
-
-    while True: 
-        users_answer = input("Please input your one letter answer here:")
-        if (len(users_answer) != 1 ) or any(char.isdigit() or char.isspace() for char in users_answer):
-            print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
-        else:
+    users_answer = input("Please input your one letter answer here:")
+    while True:
+        if users_answer.isalpha():
             print("Valid answer, proceding...")
-            time.sleep(1)
+            time.sleep(1) 
             break
-    return users_answer
-
-
+        else:
+            print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
+    return users_answer.lower()
 
 main()
