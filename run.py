@@ -61,7 +61,7 @@ def show_hangman_state():
 
 def hangman_when_answer_is_wrong(): 
     global hangman_state
-    hangman_state +=1
+    hangman_state +=1 
 
 def show_word(random_word): 
     '''
@@ -99,6 +99,10 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
             if y == users_answer:
                 hidden_word[x] = users_answer
                 print(hidden_word)
+            if "#" in word_to_guess:
+                #Do nothing
+            else:
+                #insert winning screen here !
 
     else:
         print(f"Bad guess! The letter {users_answer} is not in the word.")
