@@ -29,14 +29,14 @@ def welcome_player():
 
 def check_users_inputted_name(): 
     '''
-    Function to check users name inputs , logic is to check if the input answers length isnt nothing OR if iterate over the users answer and check if each iteration is either a number or a blank space, if either is encountered , the any() returns true forcing the loop to action all code in the if statement until false is given , allowing the else function to work, inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
+    Function to check if theres any digits, blank spaces ,and if the inputted values are alpha numeric , if not then loop iterates until valid answer is given inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
     '''
-    user_name = input("Please enter your name here: ")
+    while True:
+        user_name = input("Please enter your name here: ")
         if user_name.isalpha() and not any(char.isdigit() for char in user_name) and ' ' not in user_name:
             print("Valid answer, proceeding...")
-            time.sleep(1)
-            print("--------------------------------------------------------------------------------------------------------------------------------------------------")
-            print("--------------------------------------------------------------------------------------------------------------------------------------------------")
+            time.sleep(2)
+            print("/n /n /n /n")
             break
         else:
             print(f"Invalid input, please input an alphabetic name without any spaces or numbers: {user_name}")
@@ -49,7 +49,6 @@ def rules_of_the_game(users_name):
     '''
     print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
-    time.sleep(6)
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
 
@@ -90,15 +89,16 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     '''
     Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
-    if users_answer in user_answers_list:
-        print(f"You have already used the letter:{users_answer}")
-        global user_attempts
-        user_attempts -= 1
-        print(f'You have {user_attempts} remaining attempts left')
+    while True:
+        if users_answer in user_answers_list:
+            print(f"You have already used the letter:{users_answer}")
+            global user_attempts
+            user_attempts -= 1
+            print(f'You have {user_attempts} remaining attempts left')
+        else:
+            user_answers_list.add(users_answer)
+            break
         return
-
-    user_answers_list.add(users_answer)
-
     if users_answer in word_to_guess: 
         print(f"Correct! {users_answer} is in the word")
         user_attempts -= 1
@@ -115,20 +115,18 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         hangman_when_answer_is_wrong()
         print(f'You have {user_attempts} remaining attempts left')
 
-
 def check_users_inputted_answers():
     '''
     Checks if users answer is an alpha numeric value , loop finishes if its true.
     '''
-    users_answer = input("Please input your one letter answer here:")
+    
     while True:
+        users_answer = input("Please input your one letter answer here:")
         if users_answer.isalpha():
             print("Valid answer, proceding...")
-            time.sleep(1) 
             break
         else:
             print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
-            time.sleep(1) 
-    return users_answer.lower()
+    return users_answer
 
 main()
