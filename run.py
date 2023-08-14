@@ -87,39 +87,31 @@ def show_word(random_word):
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     '''
-    Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
+    Check if the users answer is already in their list, if it is, that means they have already guessed the same word and will lose a try, otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
-    while True:
-        if users_answer in user_answers_list:
-            print(f"You have already used the letter:{users_answer}")
-            global user_attempts
-            user_attempts -= 1
-            print(f'You have {user_attempts} remaining attempts left')
-        else:
-            user_answers_list.add(users_answer)
-            break
-        return
-    if users_answer in word_to_guess: 
-        print(f"Correct! {users_answer} is in the word")
+    global user_attempts
+    
+    if users_answer in user_answers_list:
+        print(f"You have already used the letter: {users_answer}")
         user_attempts -= 1
-        for x, y in enumerate(word_to_guess):
-            if y == users_answer:
-                hidden_word[x] = users_answer
-                print(hidden_word)
-        if "#" not in word_to_guess:
-            # Insert winning screen here!
-            print("YOUR CODE WORKS BLAIZE")
-    else:
-        print(f"Bad guess! The letter {users_answer} is not in the word.")
-        time.sleep(2)
-        hangman_when_answer_is_wrong()
         print(f'You have {user_attempts} remaining attempts left')
+    else:
+        user_answers_list.add(users_answer)
+        if users_answer in word_to_guess: 
+            print(f"Correct! {users_answer} is in the word")
+            user_attempts -= 1
+            for x, y in enumerate(word_to_guess):
+                if y == users_answer:
+                    hidden_word[x] = users_answer
+            print(hidden_word)
+            if "#" not in hidden_word:
+                # Insert winning screen here!
+                print("YOUR CODE WORKS BLAIZE")
 
 def check_users_inputted_answers():
     '''
     Checks if users answer is an alpha numeric value , loop finishes if its true.
     '''
-    
     while True:
         users_answer = input("Please input your one letter answer here:")
         if users_answer.isalpha():
