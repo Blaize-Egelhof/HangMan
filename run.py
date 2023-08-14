@@ -74,9 +74,9 @@ def show_word(random_word):
     '''
     #INSERT A while LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
     user_answers_list = set()
+    word_place_holder = ["#" for _ in random_word]
     while user_attempts > 0:
         show_hangman_state()
-        word_place_holder = ["#" for _ in random_word]
         print(f"The length of this word is, {len(random_word)} characters long")
         print(" ".join(word_place_holder))
         validated_answer = check_users_inputted_answers()
@@ -105,15 +105,17 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         user_answers_list.add(users_answer)
 
     if users_answer in word_to_guess: 
-        print(f"Correct! {users_answer} is in the word")
+        print(f"Correct! {users_answer} is in the word:")
         user_attempts -= 1
         for x, y in enumerate(word_to_guess):
             if y == users_answer:
                 hidden_word[x] = users_answer
-        print(hidden_word)
-        if "#" not in hidden_word:
-            # Insert winning screen here!
-            print("YOUR CODE WORKS BLAIZE")
+        
+    else:
+        print(f"Wrong Guess , try again !")
+        user_attempts -= 1
+        print(f"You have {user_attempts} attempts remaining...")
+        hangman_when_answer_is_wrong()
 
 def check_users_inputted_answers():
     '''
