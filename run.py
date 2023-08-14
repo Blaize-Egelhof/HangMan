@@ -23,6 +23,7 @@ def welcome_player():
     Simple function to welcome the player
     '''
     print("Welcome to my HangMan game!")
+    time.sleep(1)
     print("Please enter your Name below , please dont use any numbers and ensure theres no spaces in your name.")
 
 
@@ -36,14 +37,16 @@ def check_users_inputted_name():
             print(f"Invalid name, please re-enter your name without any numbers or blank spaces, you entered: {user_name}")
         else:
             print("Valid name, proceding...")
+            time.sleep(1)
             return user_name
             
 def rules_of_the_game(users_name): 
     '''
     Function to display rules to users
     '''
-    print(f"Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round! \n Thank you for playing my game,{users_name} please enjoy!")
-    time.sleep(0)
+    print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!")
+    print(f"Thank you for playing my game,{users_name} please enjoy!")
+    time.sleep(6)
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
 
@@ -85,27 +88,27 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
     if users_answer in user_answers_list:
-        print(f"You have already used the letter{users_answer}")
+        print(f"You have already used the letter {users_answer}")
         global user_attempts
         user_attempts -= 1
-        #INSERT FUNCTION TO SHOW HANGMAN 
-        print(f'You have {user_attempts}remaining')
-        return 
+        print(f'You have {user_attempts} remaining')
+        return
+
     user_answers_list.add(users_answer)
 
     if users_answer in word_to_guess: 
         print(f"Correct! {users_answer} is in the word")
-        for x,y in enumerate(word_to_guess):
+        user_attempts -= 1
+        for x, y in enumerate(word_to_guess):
             if y == users_answer:
                 hidden_word[x] = users_answer
                 print(hidden_word)
-            if "#" in word_to_guess:
-                #Do nothing
-            else:
-                #insert winning screen here !
-
+        if "#" not in word_to_guess:
+            # Insert winning screen here!
+            print("YOUR CODE WORKS BLAIZE")
     else:
         print(f"Bad guess! The letter {users_answer} is not in the word.")
+        time.sleep(2)
         hangman_when_answer_is_wrong()
 
 
