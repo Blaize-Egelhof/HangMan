@@ -9,6 +9,7 @@ from hangman_visuals import stages
 
 #Global variable to keep track of the users guess attempts
 user_attempts = 6
+hangman_state = 0
 
 def extract_random_word(): 
     '''
@@ -53,25 +54,31 @@ def main():
     valid_name = check_users_inputted_name()
     print(f"Hello {valid_name}!")
     rules_of_the_game(valid_name)
-    show_word_and_hangman(random_word)
+    show_word(random_word)
 
+def show_hangman_state():
+    print(stages[hangman_state])
 
+def hangman_when_answer_is_wrong(): 
+    global hangman_state
+    hangman_state +=1
 
-def show_word_and_hangman(random_word): 
+def show_word(random_word): 
     '''
     Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user
     '''
-
-    #INSERT A FOR LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
+    #INSERT A while LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
     user_answers_list = set()
-    print(stages[0])
-    word_place_holder = ["#" for _ in random_word]
-    print(f"The length of this word is, {len(random_word)} characters long")
-    print(" ".join(word_place_holder))
     while user_attempts > 0:
+        show_hangman_state()
+        word_place_holder = ["#" for _ in random_word]
+        print(f"The length of this word is, {len(random_word)} characters long")
+        print(" ".join(word_place_holder))
         validated_answer = check_users_inputted_answers()
         check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
-    
+    else:
+        print("GAME OVER \n We lost HangMan...")
+        #Create function for end screen
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     '''
@@ -95,7 +102,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
 
     else:
         print(f"Bad guess! The letter {users_answer} is not in the word.")
-        #INSERT FUNCTION TO SHOW HANGMAN
+        hangman_when_answer_is_wrong()
 
 
 
