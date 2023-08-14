@@ -36,16 +36,19 @@ def check_users_inputted_name():
         if len(user_name) == 0 or any(char.isdigit() or char.isspace() for char in user_name):
             print(f"Invalid name, please re-enter your name without any numbers or blank spaces, you entered: {user_name}")
         else:
-            print("Valid name, proceding...")
+            print("Valid input, proceding...")
             time.sleep(1)
-            return user_name
+            print("--------------------------------------------------------------------------------------------------------------------------------------------------")
+            print("--------------------------------------------------------------------------------------------------------------------------------------------------")
+
+        return user_name
             
 def rules_of_the_game(users_name): 
     '''
     Function to display rules to users
     '''
     print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!")
-    print(f"Thank you for playing my game,{users_name} please enjoy!")
+    print(f"Thank you for playing my game {users_name}, please enjoy!")
     time.sleep(6)
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -88,10 +91,10 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     Check if the users answer is already in their list, if it is ,that means they have already guessed the same word and will lose a ty , otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
     if users_answer in user_answers_list:
-        print(f"You have already used the letter {users_answer}")
+        print(f"You have already used the letter:{users_answer}")
         global user_attempts
         user_attempts -= 1
-        print(f'You have {user_attempts} remaining')
+        print(f'You have {user_attempts} remaining attempts left')
         return
 
     user_answers_list.add(users_answer)
@@ -110,7 +113,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         print(f"Bad guess! The letter {users_answer} is not in the word.")
         time.sleep(2)
         hangman_when_answer_is_wrong()
-
+        print(f'You have {user_attempts} remaining attempts left')
 
 
 def check_users_inputted_answers():
@@ -124,6 +127,7 @@ def check_users_inputted_answers():
             print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
         else:
             print("Valid answer, proceding...")
+            time.sleep(1)
             break
     return users_answer
 
