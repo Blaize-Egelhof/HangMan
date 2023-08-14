@@ -31,17 +31,17 @@ def check_users_inputted_name():
     '''
     Function to check users name inputs , logic is to check if the input answers length isnt nothing OR if iterate over the users answer and check if each iteration is either a number or a blank space, if either is encountered , the any() returns true forcing the loop to action all code in the if statement until false is given , allowing the else function to work, inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
     '''
-    while True: 
-        user_name = input("Please enter your name here: ")
-        if len(user_name) == 0 or any(char.isdigit() or char.isspace() for char in user_name):
-            print(f"Invalid name, please re-enter your name without any numbers or blank spaces, you entered: {user_name}")
-        else:
-            print("Valid input, proceding...")
+    user_name = input("Please enter your name here: ")
+        if user_name.isalpha() and not any(char.isdigit() for char in user_name) and ' ' not in user_name:
+            print("Valid answer, proceeding...")
             time.sleep(1)
             print("--------------------------------------------------------------------------------------------------------------------------------------------------")
             print("--------------------------------------------------------------------------------------------------------------------------------------------------")
+            break
+        else:
+            print(f"Invalid input, please input an alphabetic name without any spaces or numbers: {user_name}")
 
-        return user_name
+    return user_name     
             
 def rules_of_the_game(users_name): 
     '''
@@ -118,7 +118,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
 
 def check_users_inputted_answers():
     '''
-    Check if input is a 1 letter answer , will continue looping if theres 0 or more than 1 letter in the users answer , and if theres any spaces or digits present , if not then the loop breaks.
+    Checks if users answer is an alpha numeric value , loop finishes if its true.
     '''
     users_answer = input("Please input your one letter answer here:")
     while True:
@@ -128,6 +128,7 @@ def check_users_inputted_answers():
             break
         else:
             print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
+            time.sleep(1) 
     return users_answer.lower()
 
 main()
