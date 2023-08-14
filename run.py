@@ -36,7 +36,7 @@ def check_users_inputted_name():
         if user_name.isalpha() and not any(char.isdigit() for char in user_name) and ' ' not in user_name:
             print("Valid answer, proceeding...")
             time.sleep(2)
-            print("/n /n /n /n")
+            print("\n \n \n \n")
             break
         else:
             print(f"Invalid input, please input an alphabetic name without any spaces or numbers: {user_name}")
@@ -47,7 +47,7 @@ def rules_of_the_game(users_name):
     '''
     Function to display rules to users
     '''
-    print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!")
+    print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -81,32 +81,39 @@ def show_word(random_word):
         print(" ".join(word_place_holder))
         validated_answer = check_users_inputted_answers()
         check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
+        if "#" not in word_place_holder:
+            # Create victory screen!
+            print("Congratulations! You've guessed the word.")
+            # You might want to break the loop here or take other appropriate actions
+        else:
+            pass
     else:
         print("GAME OVER \n We lost HangMan...")
-        #Create function for end screen
+        # Create function for end screen
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     '''
     Check if the users answer is already in their list, if it is, that means they have already guessed the same word and will lose a try, otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
     global user_attempts
-    
+
     if users_answer in user_answers_list:
         print(f"You have already used the letter: {users_answer}")
         user_attempts -= 1
         print(f'You have {user_attempts} remaining attempts left')
     else:
         user_answers_list.add(users_answer)
-        if users_answer in word_to_guess: 
-            print(f"Correct! {users_answer} is in the word")
-            user_attempts -= 1
-            for x, y in enumerate(word_to_guess):
-                if y == users_answer:
-                    hidden_word[x] = users_answer
-            print(hidden_word)
-            if "#" not in hidden_word:
-                # Insert winning screen here!
-                print("YOUR CODE WORKS BLAIZE")
+
+    if users_answer in word_to_guess: 
+        print(f"Correct! {users_answer} is in the word")
+        user_attempts -= 1
+        for x, y in enumerate(word_to_guess):
+            if y == users_answer:
+                hidden_word[x] = users_answer
+        print(hidden_word)
+        if "#" not in hidden_word:
+            # Insert winning screen here!
+            print("YOUR CODE WORKS BLAIZE")
 
 def check_users_inputted_answers():
     '''
