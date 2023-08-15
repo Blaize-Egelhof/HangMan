@@ -116,8 +116,25 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
 
             user_answers_list.add(users_answer) 
     else:
-        print("GAME OVER \n We lost HangMan...")
+        print("GAME OVER \n We lost HangMan...\n")
+        losing_screen()
 
+
+def losing_screen(): 
+    '''
+    Function to give users an option to reply the quiz app, validates users answers to ensure that users either submit y or n, nothing else!
+    '''
+    print("Try Again?\n y = yes , n = no")
+    while True:
+        user_input = input("y/n: ").lower()
+        if user_input == "y" or user_input == "n" and user_input.isalpha() and not " ":
+            print("Valid Answer, proceeding...")
+            time.sleep(1)
+            break
+        else:
+            print("Invalid input, please enter either 'y' or 'n'.")
+
+    
 
 def check_users_inputted_answers():
     '''
