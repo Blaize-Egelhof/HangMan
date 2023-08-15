@@ -92,12 +92,16 @@ def start_game(random_word):
         check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
         if "#" not in word_place_holder:
             # Create victory screen!
+            global hangman_state
             print("Congratulations! You've guessed the word.")
-            # You might want to break the loop here or take other appropriate actions
+            print(stages[hangman_state])
+            player_selection = end_screen()
+            restart_hangman(player_selection)
         else:
             pass
     else:
         print("GAME OVER \n We lost HangMan...")
+        print(stages[hangman_state])
         # Create function for end screen
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
