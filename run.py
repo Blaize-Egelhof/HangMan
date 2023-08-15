@@ -22,9 +22,9 @@ def welcome_player():
     '''
     Simple function to welcome the player
     '''
-    print("Welcome to my HangMan game!")
+    print("Welcome to my HangMan game!\n")
     time.sleep(1)
-    print("Please enter your Name below , please dont use any numbers and ensure theres no spaces in your name.")
+    print("Please enter your Name below , please dont use any numbers and ensure theres no spaces in your name.\n")
 
 
 def check_users_inputted_name(): 
@@ -36,10 +36,10 @@ def check_users_inputted_name():
         if user_name.isalpha() and not any(char.isdigit() for char in user_name) and ' ' not in user_name:
             print("Valid answer, proceeding...")
             time.sleep(2)
-            print("\n \n \n \n")
+            print("\n \n")
             break
         else:
-            print(f"Invalid input, please input an alphabetic name without any spaces or numbers: {user_name}")
+            print(f"Invalid input, please input an alphabetic name without any spaces or numbers, you entered: {user_name}")
 
     return user_name     
             
@@ -47,7 +47,7 @@ def rules_of_the_game(users_name):
     '''
     Function to display rules to users
     '''
-    print("Some Rules of this HangMan Game:\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
+    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -57,7 +57,8 @@ def main():
     random_word = extract_random_word()
     welcome_player()
     valid_name = check_users_inputted_name()
-    print(f"Hello {valid_name}!")
+    print(f"Hello {valid_name}!\n")
+    time.sleep(2)
     rules_of_the_game(valid_name)
     show_word(random_word)
 
