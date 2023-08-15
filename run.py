@@ -8,7 +8,7 @@ from random_words import random_word_list
 from hangman_visuals import stages
 
 #Global variable to keep track of the users guess attempts
-user_attempts = 6
+user_attempts = 7
 hangman_state = 0
 
 def extract_random_word(): 
@@ -47,7 +47,7 @@ def rules_of_the_game(users_name):
     '''
     Function to display rules to users
     '''
-    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 7 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 7 attemps \n 3)If you have already guessed a letter you will lose an attempt causing Hangman to suffer  \n4)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
+    print("Here are the Rules of this HangMan Game:\n\n 1)You will get 7 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 7 attemps \n 3)If you have already guessed a letter you will lose an attempt causing Hangman to suffer \n 4)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -98,13 +98,15 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     Check if the users answer is already in their list, if it is, that means they have already guessed the same word and will lose a try, otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
     '''
     global user_attempts
-
-    if users_answer in user_answers_list:
-        print(f"You have already used the letter: {users_answer}")
-        user_attempts -= 1
-        print(f'You have {user_attempts} remaining attempts left')
-    else:
-        user_answers_list.add(users_answer)
+    while True:
+        if users_answer in user_answers_list:
+            print(f"You have already used the letter: {users_answer}")
+            user_attempts -= 1
+            print(f'You have {user_attempts} remaining attempts left')
+            print("-----------------------------------------------------------------------------------------------------------------------------")
+        else:
+            user_answers_list.add(users_answer)
+        break
 
     if users_answer in word_to_guess: 
         print(f"Correct! {users_answer} is in the word:")
@@ -126,6 +128,7 @@ def check_users_inputted_answers():
         users_answer = input("Please input your one letter answer here:")
         if users_answer.isalpha():
             print("Valid answer, proceding...")
+            print("-----------------------------------------------------------------------------------------------------------------------------")
             break
         else:
             print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
