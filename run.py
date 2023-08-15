@@ -94,31 +94,30 @@ def show_word(random_word):
         # Create function for end screen
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
-    '''
-    Check if the users answer is already in their list, if it is, that means they have already guessed the same word and will lose a try, otherwise find the index of the correctly guessed letter and update the hidden word by 1 revealed character.
-    '''
     global user_attempts
-    while True:
+
+    if user_attempts > 0:  
         if users_answer in user_answers_list:
             print(f"You have already used the letter: {users_answer}")
             user_attempts -= 1
             print(f'You have {user_attempts} remaining attempts left')
             print("-----------------------------------------------------------------------------------------------------------------------------")
         else:
-            user_answers_list.add(users_answer)
-        break
+            if users_answer in word_to_guess: 
+                print(f"Correct! {users_answer} is in the word:")
+                for x, y in enumerate(word_to_guess):
+                    if y == users_answer:
+                        hidden_word[x] = users_answer
+            else:
+                print(f"Wrong Guess , try again !")
+                user_attempts -= 1
+                print(f"You have {user_attempts} attempts remaining...")
+                hangman_when_answer_is_wrong()
 
-    if users_answer in word_to_guess: 
-        print(f"Correct! {users_answer} is in the word:")
-        for x, y in enumerate(word_to_guess):
-            if y == users_answer:
-                hidden_word[x] = users_answer
-        
+            user_answers_list.add(users_answer) 
     else:
-        print(f"Wrong Guess , try again !")
-        user_attempts -= 1
-        print(f"You have {user_attempts} attempts remaining...")
-        hangman_when_answer_is_wrong()
+        print("GAME OVER \n We lost HangMan...")
+
 
 def check_users_inputted_answers():
     '''
