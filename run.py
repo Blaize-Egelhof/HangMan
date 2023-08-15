@@ -66,7 +66,7 @@ def main():
     while True:
         random_word = extract_random_word()
         start_game(random_word)
-        player_selection = losing_screen()
+        player_selection = end_screen()
         restart_hangman(player_selection)
 
 def show_hangman_state():
@@ -125,15 +125,15 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
             user_answers_list.add(users_answer) 
     else:
         print("GAME OVER \n We lost HangMan...\n")
-        player_selection = losing_screen()
+        player_selection = end_screen()
         restart_hangman(player_selection)
 
 
-def losing_screen(): 
+def end_screen(): 
     '''
     Function to give users an option to reply the quiz app, validates users answers to ensure that users either submit y or n, nothing else!
     '''
-    print("Try Again?\n y = yes , n = no")
+    print("Play Again?\n y = yes , n = no")
     while True:
         user_input = input("y/n: ")
         if user_input.lower() == "y" or user_input.lower() == "n":
@@ -165,8 +165,8 @@ def check_users_inputted_answers():
 
     while True: 
         users_answer = input("Please input your one letter answer here:")
-        if len(users_answer) != 1 or any(char.isdigit() or char.isspace() for char in users_answer) or not users_answer.isalpha:
-            print(f"Invalid input, please input a one letter answer without any spaces or numbers.")
+        if len(users_answer) != 1 or not users_answer.isalpha():
+            print(f"Invalid input, please input a one letter alpha-numeric answer.")
         else:
             return users_answer.lower()
 
