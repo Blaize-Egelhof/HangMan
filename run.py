@@ -135,7 +135,7 @@ def losing_screen():
     print("Try Again?\n y = yes , n = no")
     while True:
         user_input = input("y/n: ")
-        if (user_input == "y" or user_input == "n") and (user_input.isalpha() and not " ") and not user_input.isdigit():
+        if user_input.lower() == "y" or user_input.lower() == "n":
             print("Valid Answer, proceeding...")
             time.sleep(1)
             break
@@ -158,7 +158,7 @@ def restart_hangman(player_selection):
 
 
 def check_users_inputted_answers():
-     '''
+    '''
     Check if input is a 1 letter answer, will continue looping if there's 0 or more than 1 letter in the user's answer, and if there are any spaces or digits present. If the input is valid, the loop breaks.
     '''
 
