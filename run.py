@@ -47,7 +47,7 @@ def rules_of_the_game(users_name):
     '''
     Function to display rules to users
     '''
-    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 6 attempts to guess the word. \n 2)If you fail to guess the word within 7 tries you have caused Mr Hangmans death and will have to try again \n 3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
+    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 6 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 6 attemps \n 4)If you have already guessed a letter you will lose an attempt causing Hangman to suffer  3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -71,7 +71,8 @@ def hangman_when_answer_is_wrong():
 
 def show_word(random_word): 
     '''
-    Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user
+    Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user. 
+    This function also validated and handles users answer and responds accordingly, this all loops until the player either guess's the whole word meaning theres no # left in the string OR they run out of attempts
     '''
     #INSERT A while LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
     user_answers_list = set()
@@ -107,7 +108,6 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
 
     if users_answer in word_to_guess: 
         print(f"Correct! {users_answer} is in the word:")
-        user_attempts -= 1
         for x, y in enumerate(word_to_guess):
             if y == users_answer:
                 hidden_word[x] = users_answer
