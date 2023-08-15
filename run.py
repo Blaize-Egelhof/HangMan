@@ -107,6 +107,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         if users_answer in user_answers_list:
             print(f"You have already used the letter: {users_answer}")
             user_attempts -= 1
+            hangman_when_answer_is_wrong()
             print(f'You have {user_attempts} remaining attempts left')
             print("-----------------------------------------------------------------------------------------------------------------------------")
         else:
@@ -148,7 +149,7 @@ def restart_hangman(player_selection):
     '''
     Restarts HangMan for the current player, ignores all introduction functions and throws the player back into the game.
     '''
-    if player_selection == y :
+    if player_selection == "y" :
         new_random_word = extract_random_word() 
         global user_attempts, hangman_state
         user_attempts = 7 
