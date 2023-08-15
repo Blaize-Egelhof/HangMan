@@ -47,7 +47,7 @@ def rules_of_the_game(users_name):
     '''
     Function to display rules to users
     '''
-    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 6 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 6 attemps \n 4)If you have already guessed a letter you will lose an attempt causing Hangman to suffer  3)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
+    print("Here are the Rules of this HangMan Game:\n\n 1)You will Get 7 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 7 attemps \n 3)If you have already guessed a letter you will lose an attempt causing Hangman to suffer  \n4)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
     print("--------------------------------------------------------------------------------------------------------------------------------------------------")
@@ -73,8 +73,8 @@ def show_word(random_word):
     '''
     Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user. 
     This function also validated and handles users answer and responds accordingly, this all loops until the player either guess's the whole word meaning theres no # left in the string OR they run out of attempts
+    Addionally this function stores users 1 letter guess's in a set called user_answers_list , this is checked during the check_guess validation function to ensure users dont answer with the same letter during their playthrough
     '''
-    #INSERT A while LOOP TO CHECK IF THE GLOBAL TRIES VARABLE ISNT != 0 and loop , if it is =0 iTS GAME OVER 
     user_answers_list = set()
     word_place_holder = ["#" for _ in random_word]
     while user_attempts > 0:
