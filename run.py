@@ -117,6 +117,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
                         hidden_word[x] = users_answer
             else:
                 print(f"Wrong Guess , try again !")
+                print("-----------------------------------------------------------------------------------------------------------------------------")
                 user_attempts -= 1
                 print(f"You have {user_attempts} attempts remaining...")
                 hangman_when_answer_is_wrong()
@@ -164,9 +165,9 @@ def check_users_inputted_answers():
 
     while True: 
         users_answer = input("Please input your one letter answer here:")
-        if len(users_answer) != 1 or any(char.isdigit() or char.isspace() for char in users_answer):
+        if len(users_answer) != 1 or any(char.isdigit() or char.isspace() for char in users_answer) or not users_answer.isalpha:
             print(f"Invalid input, please input a one letter answer without any spaces or numbers.")
         else:
-            return users_answer
+            return users_answer.lower()
 
 main()
