@@ -54,13 +54,20 @@ def rules_of_the_game(users_name):
 
 
 def main():
-    random_word = extract_random_word()
+    '''
+    First 5 fuctions trigger only once, all functions in the while statement is to loop gameplay if a user chooses to restart the game.
+    '''
     welcome_player()
     valid_name = check_users_inputted_name()
     print(f"Hello {valid_name}!\n")
     time.sleep(2)
     rules_of_the_game(valid_name)
-    show_word(random_word)
+
+    while True:
+        random_word = extract_random_word()
+        start_game(random_word)
+        player_selection = losing_screen()
+        restart_hangman(player_selection)
 
 def show_hangman_state():
     print(stages[hangman_state])
@@ -69,7 +76,7 @@ def hangman_when_answer_is_wrong():
     global hangman_state
     hangman_state +=1 
 
-def show_word(random_word): 
+def start_game(random_word): 
     '''
     Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user. 
     This function also validated and handles users answer and responds accordingly, this all loops until the player either guess's the whole word meaning theres no # left in the string OR they run out of attempts
@@ -117,7 +124,8 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
             user_answers_list.add(users_answer) 
     else:
         print("GAME OVER \n We lost HangMan...\n")
-        losing_screen()
+        player_selection = losing_screen()
+        restart_hangman(player_selection)
 
 
 def losing_screen(): 
@@ -126,28 +134,46 @@ def losing_screen():
     '''
     print("Try Again?\n y = yes , n = no")
     while True:
-        user_input = input("y/n: ").lower()
-        if user_input == "y" or user_input == "n" and user_input.isalpha() and not " ":
+        user_input = input("y/n: ")
+        if (user_input == "y" or user_input == "n") and (user_input.isalpha() and not " ") and not user_input.isdigit():
             print("Valid Answer, proceeding...")
             time.sleep(1)
             break
         else:
             print("Invalid input, please enter either 'y' or 'n'.")
+    return user_input.lower()
 
-    
+def restart_hangman(player_selection): 
+    '''
+    Restarts HangMan for the current player, ignores all introduction functions and throws the player back into the game.
+    '''
+    if player_selection == y :
+        new_random_word = extract_random_word() 
+        global user_attempts, hangman_state
+        user_attempts = 7 
+        hangman_state = 0  
+        start_game(new_random_word)  
+    else:
+        exit()
+
 
 def check_users_inputted_answers():
+      '''
+    Check if input is a 1 letter answer , will continue looping if theres 0 or more than 1 letter in the users answer , and if theres any spaces or digits present , if not then the loop breaks.
     '''
-    Checks if users answer is an alpha numeric value , loop finishes if its true.
-    '''
-    while True:
+
+    while True: 
         users_answer = input("Please input your one letter answer here:")
+        if (len(users_answer) != 1 ) or any(char.isdigit() or char.isspace() for char in users_answer):
+            print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
+        else:
+    users_answer = input("Please input your one letter answer here:")
+    while True:
         if users_answer.isalpha():
             print("Valid answer, proceding...")
-            print("-----------------------------------------------------------------------------------------------------------------------------")
+            time.sleep(1)
+            time.sleep(1) 
             break
-        else:
-            print(f"Invalid input , please input a one letter answer without any spaces or numbers you entered: {users_answer}")
     return users_answer
 
 main()
