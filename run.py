@@ -13,14 +13,14 @@ hangman_state = 0
 
 def extract_random_word(): 
     '''
-    Extract a random word out of the random_words.py file , specifically the random_word_list list
+    Extract a random word out of the random_words.py file , specifically the random_word_list list, using random module.
     '''
     random_word = random.choice(random_word_list)
     return random_word
 
 def welcome_player():
     '''
-    Simple function to welcome the player
+    Welcome the player
     '''
     print("Welcome to my HangMan game!\n")
     time.sleep(1)
@@ -29,7 +29,7 @@ def welcome_player():
 
 def check_users_inputted_name(): 
     '''
-    Function to check if theres any digits, blank spaces ,and if the inputted values are alpha numeric , if not then loop iterates until valid answer is given inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
+    Check if theres any digits, blank spaces ,and if the inputted values are alpha numeric , if not then loop iterates until valid answer is given inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
     '''
     while True:
         user_name = input("Please enter your name here: ")
@@ -45,7 +45,7 @@ def check_users_inputted_name():
             
 def rules_of_the_game(users_name): 
     '''
-    Function to display rules to users
+    Function to display rules to users , takes the users name input as parameter to display welcome text
     '''
     print("Here are the Rules of this HangMan Game:\n\n 1)You will get 7 incorrect attempts to guess the word. \n 2)Any correct guesses will not affect your 7 attemps \n 3)If you have already guessed a letter you will lose an attempt causing Hangman to suffer \n 4)If you sucessfully guessed the word you will have saved Mr HangMans life and won the round!\n")
     print(f"Thank you for playing my game {users_name}, please enjoy!")
