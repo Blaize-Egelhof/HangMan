@@ -5,4 +5,9 @@ random_word_list = [
     "developer",
     "terminal",
     "project",
+    "computer",
+    "algorithm",
+    "language",
+    "keyboard",
+    "variable",
 ]
