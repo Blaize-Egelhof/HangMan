@@ -1,10 +1,10 @@
-#Need to import this Python Random Module , how the functions worked I got from https://www.w3schools.com/python/module_random.asp
+#Import the random module for generating random choices
 import random 
-#Time Module to pause between some functions function 
+#Import the time module for adding delays 
 import time
-#Pull the list variable containing all my words
+#Import the list of random words from the random_words module
 from random_words import random_word_list 
-#Pull the list containing the visuals for hangman
+#Import the list of visuals for Hangman stages
 from hangman_visuals import stages
 
 #Global variable to keep track of the users guess attempts
@@ -13,14 +13,14 @@ hangman_state = 0
 
 def extract_random_word(): 
     '''
-    Extract a random word out of the random_words.py file , specifically the random_word_list list, using random module.
+    Extract a random word from the random_words.py file.
     '''
     random_word = random.choice(random_word_list)
     return random_word
 
 def welcome_player():
     '''
-    Welcome the player
+    Display a welcome message and prompt the player for their name.
     '''
     print("Welcome to my HangMan game!\n")
     time.sleep(1)
@@ -29,7 +29,7 @@ def welcome_player():
 
 def check_users_inputted_name(): 
     '''
-    Check if theres any digits, blank spaces ,and if the inputted values are alpha numeric , if not then loop iterates until valid answer is given inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
+    Check and validate the user's inputted name inspiration from https://www.tutorialspoint.com/How-to-check-if-a-string-contains-only-whitespace-letters-in-Python
     '''
     while True:
         user_name = input("Please enter your name here: ")
@@ -55,7 +55,7 @@ def rules_of_the_game(users_name):
 
 def main():
     '''
-    First 5 fuctions trigger only once, all functions in the while statement is to loop gameplay if a user chooses to restart the game.
+    The main function that orchestrates the game.
     '''
     welcome_player()
     valid_name = check_users_inputted_name()
@@ -70,17 +70,22 @@ def main():
         restart_hangman(player_selection)
 
 def show_hangman_state():
+    '''
+    Displays hangmans current state to users
+    '''
     print(stages[hangman_state])
 
 def hangman_when_answer_is_wrong(): 
+    '''
+    Increments hangman variable to update hangmans current status
+    '''
     global hangman_state
     hangman_state +=1 
 
 def start_game(random_word): 
     '''
-    Function to take the randomly chosen word as a parameter and convert it to a # string to hide the current word from user + display HangMans Status to user. 
-    This function also validated and handles users answer and responds accordingly, this all loops until the player either guess's the whole word meaning theres no # left in the string OR they run out of attempts
-    Addionally this function stores users 1 letter guess's in a set called user_answers_list , this is checked during the check_guess validation function to ensure users dont answer with the same letter during their playthrough
+    Start the game with the given random word.
+    Display hangman's status and handle user's input.
     '''
     user_answers_list = set()
     word_place_holder = ["#" for _ in random_word]
@@ -91,7 +96,6 @@ def start_game(random_word):
         validated_answer = check_users_inputted_answers()
         check_guess(validated_answer, random_word, word_place_holder, user_answers_list)
         if "#" not in word_place_holder:
-            # Create victory screen!
             global hangman_state
             print("Congratulations! You've guessed the word.")
             print(stages[hangman_state])
@@ -102,37 +106,6 @@ def start_game(random_word):
     else:
         print("GAME OVER \n We lost HangMan...")
         print(stages[hangman_state])
-        # Create function for end screen
-
-def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
-    global user_attempts
-
-    if user_attempts > 0:  
-        if users_answer in user_answers_list:
-            print(f"You have already used the letter: {users_answer}")
-            user_attempts -= 1
-            hangman_when_answer_is_wrong()
-            print(f'You have {user_attempts} remaining attempts left')
-            print("-----------------------------------------------------------------------------------------------------------------------------")
-        else:
-            if users_answer in word_to_guess: 
-                print(f"Correct! {users_answer} is in the word:")
-                for x, y in enumerate(word_to_guess):
-                    if y == users_answer:
-                        hidden_word[x] = users_answer
-            else:
-                print(f"Wrong Guess , try again !")
-                print("-----------------------------------------------------------------------------------------------------------------------------")
-                user_attempts -= 1
-                print(f"You have {user_attempts} attempts remaining...")
-                hangman_when_answer_is_wrong()
-
-            user_answers_list.add(users_answer) 
-    else:
-        print("GAME OVER \n We lost HangMan...\n")
-        player_selection = end_screen()
-        restart_hangman(player_selection)
-
 
 def end_screen(): 
     '''
@@ -171,7 +144,7 @@ def check_users_inputted_answers():
     while True: 
         users_answer = input("Please input your one letter answer here:")
         if len(users_answer) != 1 or not users_answer.isalpha():
-            print(f"Invalid input, please input a one letter alpha-numeric answer.")
+            print(f"Invalid input, please enter a single alphabetic character."")
         else:
             return users_answer.lower()
 
