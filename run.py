@@ -27,7 +27,7 @@ def welcome_player():
     print("Welcome to my HangMan game!\n")
     time.sleep(1)
     print("Please enter your name below,\n"
-    "Please don't use any numbers or spaces in your name\n")
+          "Please don't use any numbers or spaces in your name\n")
 
 
 def check_users_inputted_name():
@@ -49,7 +49,7 @@ def check_users_inputted_name():
             break
         else:
             print(
-            "---------------------------------------------------------------------"
+                "-------------------------------------------------------------"
             )
             print(
                 "Invalid name, please use only letters "
@@ -57,31 +57,40 @@ def check_users_inputted_name():
             )
             print(f"you entered: {user_name}")
             print(
-            "---------------------------------------------------------------------"
+                "-------------------------------------------------------------"
             )
 
     return user_name
 
+
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
     global user_attempts
 
-    if user_attempts > 0:  
+    if user_attempts > 0:
         if users_answer in user_answers_list:
+            print(
+                "-------------------------------------------------------------"
+            )
             print(f"You have already used the letter: {users_answer}")
             user_attempts -= 1
             hangman_when_answer_is_wrong()
             print(f'You have {user_attempts} remaining attempts left')
-            print("-----------------------------------------------------------------------------------------------------------------------------")
+            print(
+                "-------------------------------------------------------------"
+            )
         else:
-            if users_answer in word_to_guess: 
+            if users_answer in word_to_guess:
                 print(f"Correct! {users_answer} is in the word:")
+                time.sleep(1)
                 for x, y in enumerate(word_to_guess):
                     if y == users_answer:
                         hidden_word[x] = users_answer
             else:
                 print(f"Wrong Guess , try again !")
                 time.sleep(1)
-                print("-----------------------------------------------------------------------------------------------------------------------------")
+                print(
+                    "---------------------------------------------------------"
+                )
                 user_attempts -= 1
                 print(f"You have {user_attempts} attempts remaining...")
                 hangman_when_answer_is_wrong()
@@ -181,7 +190,7 @@ def start_game(random_word):
         else:
             pass
     else:
-        print("GAME OVER \n We lost HangMan...")
+        print("GAME OVER \nWe lost HangMan...")
         print(stages[hangman_state])
         player_selection = end_screen()
         restart_hangman(player_selection)
@@ -201,7 +210,13 @@ def end_screen():
             time.sleep(1)
             break
         else:
+            print(
+                "-------------------------------------------------------------"
+            )
             print("Invalid input, please enter either 'y' or 'n'.")
+            print(
+                "-------------------------------------------------------------"
+            )
     return user_input.lower()
 
 
@@ -217,6 +232,7 @@ def restart_hangman(player_selection):
         hangman_state = 0
         start_game(new_random_word)
     else:
+        print("EXITING...")
         exit()
 
 
@@ -229,12 +245,12 @@ def check_users_inputted_answers():
         users_answer = input("Please input your one-letter answer here:")
         if len(users_answer) != 1 or not users_answer.isalpha():
             print(
-            "---------------------------------------------------------------------"
+                "-------------------------------------------------------------"
             )
             print("Invalid input, please enter a single alphabetic character.")
             print(f"You inputted: {users_answer}")
             print(
-            "---------------------------------------------------------------------"
+                "-------------------------------------------------------------"
             )
         else:
             return users_answer.lower()
