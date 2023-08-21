@@ -81,6 +81,9 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
         else:
             if users_answer in word_to_guess:
                 print(f"Correct! {users_answer} is in the word:")
+                print(
+                "-------------------------------------------------------------"
+            )
                 time.sleep(1)
                 for x, y in enumerate(word_to_guess):
                     if y == users_answer:

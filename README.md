@@ -1,20 +1,21 @@
-# Dad Jokes
+# HangMan
 
-![Responsive screenshot](/docs/readme-images/responsive-screen.png)
+![Responsive screenshot](/img-for-readme/amiresponsive-title)
 
-# The purpose with this project
+## Purpose of the Project
 
-Dad Jokes is a console based application that accommodates individuals that are either interested in quick amusement of silly jokes or individuals that wants to share their silly jokes with other users. The user interface is text based and it is run from a text terminal or other types of command-in interfaces. 
+HangMan is a simple terminal-based game designed to provide entertainment as well as mental stimulation to players.
 
-The application has two options at start that either lets the user read and rate a joke or submit a joke together with their name.
+The application allows users to play the game indefinitely without having to re-run the code.
 
-Target audience: All individuals that wants to read and rate a silly joke and all individuals that wants to submit a joke for future rating.
+Target Audience: Individuals seeking thought-inducing temporary entertainment in the form of a game.
 
-This project is the third of five milestone projects that needs to be completed in order for me to receive a diploma in Software Development from The Code Institute https://codeinstitute.net/
+This project is the third of five milestone projects required to receive a diploma in Software Development from The Code Institute: https://codeinstitute.net/
 
-Required technologies for this project: Python
+Required Technologies for this Project: Python
 
-A live version of this project can be found at this url: https://dad-jokes-1.herokuapp.com/
+A live version of this project can be found at the following URL: https://blaizeegelhof--hangman--p3-4273e3ce0a2b.herokuapp.com/
+
 
 # Table of Content
 
@@ -47,34 +48,32 @@ A live version of this project can be found at this url: https://dad-jokes-1.her
 
 This application is ment for:
 
- - All individuals that wants amusements gotten by reading short silly jokes.
- - All individuals that wants to share silly jokes and have the rated by other users.
+ - All individuals who enjoy playing Hangman and solving word-based puzzles.
+ - People looking for a simple and entertaining game to play in their free time.
 
 ### User Stories
 
-I have divided the user stories for this application in to two different sections, User Reading and User Submitting. The scenarios do not differ much between Old users and New users.
+User stories for this Hangman application can be categorized into two sections: Gameplay and User Interaction.
 
-#### User reading
+#### Gameplay
+- As a player, I want to be able to enter my name before starting the game, so that I have a personalized experience.
+- As a player, I want the game to be engaging and easy to understand, so that I can enjoy playing it without confusion.
 
- - I want to read a silly joke.
- - I want to rate a silly joke.
- - I want to see who submitted silly jokes.
- - I want to see the rating my submitted joke has. (Old user)
- - I want to see if there is any more jokes since last time I used the application (Old user)
+#### User Interaction
 
-#### User submitting
+- As a user, I want to be able to guess letters and solve the word puzzle.
+- As a user, I want to receive feedback on my guesses, indicating whether they were correct or not.
+- As a user, I want the game to display the Hangman's progress visually to make it more immersive.
 
- - I want to submit a silly joke.
- - I want other users to read my silly joke.
- - I want other users to rate my silly joke.
 
 ### User Goals
 
-To get amused by silly jokes for a short period of time OR submit silly jokes.
+- To challenge themselves and have fun by solving word puzzles.
+- To enjoy a classic game that exercises their vocabulary and critical thinking skills.
 
 ### Project Requirements
 
-Python application using libraries/API and deployed to a cloud-based platform.
+- Python application to be deployed in Heroku.
 
 ### Design diagram
 
