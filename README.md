@@ -118,19 +118,19 @@ After a user has inputted a name in the specified format , users are greeted by 
 
 After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
-![HangMan and Random Word Starting Screen](/img-for-readme/startgame-screen.png)
+![HangMan and Random Word Starting Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-screen.png)
 
 If a user guess's a 1 character letter correctly , the user is informed and the random word is updated and the guess'd letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
 
-![Starting Screen when answer is correct](/img-for-readme/startgame-correct-guess.png)
+![Starting Screen when answer is correct](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-correct-guess.png)
 
 If the user guess's incorrectly , the user is informed and loses an attempt, affecting HangMan and displaying his current status to users.
 
-![Starting Screen when answer is incorrect](/img-for-readme/startgame-incorrect-guess.png)
+![Starting Screen when answer is incorrect](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-incorrect-guess.png)
 
 If the user guess's the same 1 letter answer they already guess'd the user loses and attempt and HangMan is affected and displayed, addionally the repeated guess'd word is displayed to the user to notify them that the letter is repeated. 
 
-![Starting Screen when user guess's same letter again](../img-for-readme/startgame-winning-screen.png)
+![Starting Screen when user guess's same letter again](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-guessed-answer-is-the-same.png)
 
 #### End Screen Decisions:
 
