@@ -22,17 +22,16 @@ A live version of this project can be found at the following URL: https://blaize
 + [UX](#ux "UX")
   + [User Demographic](#user-demographic "User Demographic")
   + [User Stories](#user-stories "User Stories")
-    + [User reading](#user-reading "User reading")
-    + [User submitting](#user-submitting "User submitting")
   + [User Goals](#user-goals "User goals")
   + [Project Requirements](#project-requirements "Project Requirements")
   + [Design diagram](#design-diagram "Design diagram")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
-    + [Start Read and Rate](#start-read-and-rate "Start read and rate")
-    + [Start submit joke](#start-submit-joke "Start submit joke")
+    + [Submit a Name to use during gameplay](#Submit-a-Name-to-use-during-gameplay "Submit a Name to use during gameplay")
+    + [Submit a one-letter answer per round](#Submit-a-one-letter-answer-per-round "Submit a one-letter answer per round")
+    + [Decide on an outcome on each end-screen](#End-Screen-Decisions "End-screen decisions")
   + [Features Left to Implement](#features-left-to-implement "Features Left to Implement")
-+ [Technologies used](#technologies-used "Technologies used")
++ [Technologies and libraries used](#Technologies-and-libraries-used "Technologies and libraries used")
   + [Data storage](#data-storage "Data Storage")
 + [Testing](#testing "Testing")
   + [Bugs during development](#bugs-during-development "Bugs during development")
@@ -116,6 +115,8 @@ After a user has inputted a name in the specified format , users are greeted by 
 
 After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
+#### Submit a one-letter answer per round:
+
 ![HangMan and Random Word Starting Screen](/img-for-readme/startgame-screen.png)
 
 If a user guess's a 1 character letter correctly , the user is informed and the random word is updated and the guess'd letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
@@ -128,98 +129,65 @@ If the user guess's incorrectly , the user is informed and loses an attempt, aff
 
 If the user guess's the same 1 letter answer they already guess'd the user loses and attempt and HangMan is affected and displayed, addionally the repeated guess'd word is displayed to the user to notify them that the letter is repeated. 
 
-![Starting Screen when user guess's word](/img-for-readme/startgame-incorrect-guess.png)
+![Starting Screen when user guess's same letter again](/img-for-readme/startgame-winning-screen.png)
 
+#### End Screen Decisions:
 
-#### Start submit joke
+If the user succesfully guess's the word , they are congratulated and given the option to either restart the game or quit entirly.
 
-The user starts the submit option from the start section of the application. To submit a joke the number 2 needs to be entered followed by the enter key.
+![Winning Screen](/img-for-readme/startgame-winning-screen.png)
 
-![Start submit](/docs/readme-images/start-read-screen.png)
+If the user chooses to play the game again , a new word is imported, players regain their 7 attempts and Hangman is reset to his default state.
 
-After the selection the user is presented with an instruction to follow the steps and enter a name or a nickname. If the user enters a name shorter than two signs or longer than 10 signs they will be prompted to correct.
+![Winning Screen if user restarts](/img-for-readme/startgame-winning-screen-restart.png)
 
-![Enter name](/docs/readme-images/enter-name-screen.png)
+Similarly if the users lose the game they are informed and presented with the option to restart the game.
 
-When name is entered the user is presented with instructions on how to write to make it easier for other users and prompted to enter their joke. If users tries to submit a very short joke or a joke longer than 300 signs they will be prompted to correct it. They user cannot submit empty jokes.
+![Losing Screen](/img-for-readme/losing-screen.png)
 
-![Enter name](/docs/readme-images/enter-joke-screen.png)
+If the user chooses to restart the game from the losing screen, they regain 7 attempts and Hangman is reset to his default state.
 
-When the joke has been submitted the user is taken to the last section of this option. Here the user can choose to submit another joke, restart the application or quit the application.
-
-![Enter name](/docs/readme-images/end-submit-screen.png)
-
-If s is selected the user will restart the submit function, if r is pressed the application starts over from the start selection screen and q will terminate the application.
+![Losing Screen restart](/img-for-readme/losing-screen-restart.png)
 
 ## Features Left to Implement
 
-Future versions of this application will contain a graphical user interface and a capability for users to search and find the rating of their jokes.
+Future versions of this application will store the users sign-in information via a database to allow for users to login and play the game, this will be implemented soley to have a leaderboard in place for my players to compete with eachother.
 
-[Back to top](#dad-jokes)
+[Back to top](#HangMan)
 
 ## Technologies and libraries used
 
 Main languages
 
 - [Python](https://en.wikipedia.org/wiki/Python_programming_language)
-- [HTML](https://en.wikipedia.org/wiki/HTML) - Provided in the Code Institute template
-- [CSS](https://en.wikipedia.org/wiki/CSS) - Provided in the Code Institute template
-- [JavaScript](https://en.wikipedia.org/wiki/javascript) - Provided in the Code Institute template
+- [MarkDown](https://en.wikipedia.org/wiki/Markdown) - Provided in the Code Institute ReadMe template
 
-Python libraries and api used
+Python libraries used:
 
-- [Sys](https://docs.python.org/3/library/sys.html)
+- [Time](https://docs.python.org/3/library/time.html)
 - [Random](https://docs.python.org/3/library/random.html)
-- [Google auth](https://google-auth.readthedocs.io/en/master/index.html)
-- [Termcolor](https://pypi.org/project/termcolor/)
 
 ### Data storage
 
-Jokes, submitted jokes, sumbmitter name and scores are fetched and stored in a Google Sheet using:
-
-- [Google Drive API](https://developers.google.com/drive/api)
-- [Google Sheet API](https://developers.google.com/sheets/api)
-
-
+-N/A
 
 ## Testing 
 
-Testing has been conducted continuously during the development process. Manual testing has been conducted by the author and my mentor [Martina Terlevic](https://www.linkedin.com/in/martinaterlevic/) and fellow student [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/). Read more about bugs during development and unfixed bugs for more information.
-
+Testing has been conducted continuously during the development process. Manual testing has been conducted by my mentor [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/). Read more about bugs during development and unfixed bugs for more information.
 
 
 ### Bugs during development
-
-- Using Colorama library but my tests are not working. When I do a print syntax with the provided syntax to change the font color "Hello World" is not printing.
-  - <i>Used the wrong syntax. Needed to add a "+" sign before the string</i>
-- Pure strings are using the selected colors but all prints from the worksheet are still white and I get a syntax error.
-  - <i>Tried Termcolor library instead of Colorama library and it did the trick</i>
-- Get error messages when I try to access a specific row in the worksheet
-  - <i>Used the wrong syntax for the library Gspread. Tried to install and import a different library but that was also problematic. Eventually I found the syntax for the Gspread library and it worked.</i>
-- Not able to add new rating with total rating
-  - <i>The variables were strings, converted them to int's and it worked</i>
-- Not able to get a proper error message when rating not entered correctly
-  - <i>Used an if/else statement to check and return if input is faulty</i>
-- The worksheet is not updating correctly. Can't figure out why.
-  - <i>Went back to look at Love Sandwiches and created a function that updates the worksheet based on that project</i>
-- Can't figure out how to correctly copy the formula needed in the spreadsheet to get average rating.
-  - <i>Will try to do the calculation inside Python instead. Update: Did overhaul all that had to do with average score. Removed the calculation of score from the spreadsheet and did the calculation in run.py instead</i>
-- When a joke is rated with a number containing a . or a , the application crashes.
-  - <i>Added a try statement to check that the input is an integer</i>
-- On the end screens: If an integer or float value is entered the application crashes.
-  - <i>Created a nested function inside the end function that validates the input and prevents crashing</i>
-- Application crashes if enter is pressed without a value in the end screens.
-  - <i>Created a nested function inside the end function that validates the input and prevents crashing</i>
-- Users can submit joke and name with only white spaces.
-  - <i>Added nested functions in both submit functions for joke and name that controlls lenght and check for white spaces.Found information on how to do it on https://www.geeksforgeeks.org/python-string-isspace-method/</i>
-- Average score is not calculated properly.
-  - <i>The formula for average score was not correct. It contained wrong values. Corrected.</i>
+RECORD BUGS HERE 
 
 ### Validator Testing 
 
 The code has also been tested by using PEP8 Online http://pep8online.com/.
 
-Final testing warned about long lines. This has been corrected and the code passes without any issues.
+All 3 python files were present were tested , no errors reported, find results below:
+
+- [run.py](https://docs.python.org/3/library/random.html)
+- [random_words.py](https://docs.python.org/3/library/random.html)
+- [hangman_visuals.py](https://docs.python.org/3/library/random.html)
 
 ### Unfixed Bugs
 
@@ -227,17 +195,17 @@ Currently working to solve the bugs in this list. They will be moved to the Bugs
 
 - No known bugs at this point
 
- [Back to top](#dad-jokes)
+ [Back to top](#HangMan)
 
 ## Development and Deployment
 
-The development environment used for this project was GitPod. To track the development stage and handle version control regular commits and pushes to GitHub has been conducted. The GitPod environment was created using a template provided by Code Institute.
+The development environment used for this project was CodeAnyWhere. To track the development stage and handle version control regular commits and pushes to GitHub has been conducted. The CodeAnyWhere environment was created using a template provided by Code Institute.
 
 The live version of the project is deployed using Heroku(https://heroku.com)
 
 This is how this project was deployed using Heroku:
 
-To prepare for deployment on Heroku a requirements.txt needs to be created in the same folder as the .py file in GitPod. This file needs to contain a list of all libraries the project needs to run as a Heroku App.
+To prepare for deployment on Heroku a requirements.txt needs to be created in the same folder as the .py file in CodeAnyWhere. This file needs to contain a list of all libraries the project needs to run as a Heroku App.
 
 Then follow these steps:
 
@@ -264,12 +232,12 @@ Deploying your app to heroku
  - command: git push origin main
  - command: git push heroku main
 
-After those steps were taken the application was deployed at the following link: https://dad-jokes-1.herokuapp.com/
+After those steps were taken the application was deployed at the following link: https://blaizeegelhof--hangman--p3-4273e3ce0a2b.herokuapp.com/
 
 ## Content 
 
 - All text content in the application is created by the author of the project.
-- The initial 24 jokes in the Google Sheet are credited to [Country Living](https://www.countryliving.com/life/a27452412/best-dad-jokes/) and the submitter name for these jokes are set to CL
+- The HangMan visuals on hangman_visuals.py was inspired by Kiteco then modified [Kiteco](https://github.com/kiteco/python-youtube-code/blob/master/build-hangman-in-python/hangman.py)
 
 ## Credits 
 
@@ -277,17 +245,13 @@ After those steps were taken the application was deployed at the following link:
 
 I have consulted numerous websites, individuals and slack channels to get support for the code. No code block is directly copied but some generates from information I gathered from other developers and sites:
 
- - [Google Sheets for Developers](https://developers.google.com/sheets/api/reference/rest/v4/spreadsheets/cells) for information about exctracting information from a Google Sheet.
- - [Code Institute - Love Sandwiches](https://github.com/Code-Institute-Solutions/love-sandwiches-p5-sourcecode) for inspiration and understanding on how to develope the project.
- - [W3 Schools](https://www.w3schools.com/python/python_lists.asp) for understanding how to remove items from lists.
- - [W3 Schools](https://www.w3schools.com/python/gloss_python_type_conversion.asp) for understanding variable conversion.
- - [Code Institute](https://codeinstitute.net/) for all course material leading up to this project.
 
 ### Acknowledgment
+ - [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/) Thank you for all the amazing advise during the course of this project.
+ - [Student Care at Code Insitute](https://learn.codeinstitute.net/login?next=/ci_support/diplomainfullstacksoftwarecommoncurriculum/studentcare) Thank you for assisting with any small issues encountered during development of HangMan
 
- - [Martina Terlevic](https://www.linkedin.com/in/martinaterlevic/) My fantastic mentor at Code Institute, thank you for your support, feedback, bug testing and great sense of humor.
- - [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/) Thank you for testing and contribution of ideas and dealing with my stress over this project.
+ - [Kiteco](https://github.com/kiteco) Thank you for giving me inspiration for starting this project
 
  [Am I Responsive](http://ami.responsivedesign.is/) was used to create the image on top of this ReadMe
 
-[Back to top](#dad-jokes)
+[Back to top](#HangMan)

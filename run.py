@@ -141,7 +141,7 @@ def main():
     welcome_player()
     valid_name = check_users_inputted_name()
     print(f"Hello {valid_name}!\n\n")
-    time.sleep(2)
+    time.sleep(1)
     rules_of_the_game(valid_name)
 
     while True:
@@ -186,9 +186,8 @@ def start_game(random_word):
         )
         if "#" not in word_place_holder:
             global hangman_state
-            print("Congratulations! You've guessed the word.")
-            print(stages[hangman_state])
-            print(f"The Word to guess was: {random_word}")
+            print("Congratulations! You've guessed the word.\n"
+            f"The Word to guess was: {random_word}")
             player_selection = end_screen()
             restart_hangman(player_selection)
         else:
