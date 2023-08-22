@@ -129,7 +129,7 @@ If the user guess's incorrectly , the user is informed and loses an attempt, aff
 
 If the user guess's the same 1 letter answer they already guess'd the user loses and attempt and HangMan is affected and displayed, addionally the repeated guess'd word is displayed to the user to notify them that the letter is repeated. 
 
-![Starting Screen when user guess's same letter again](/img-for-readme/startgame-winning-screen.png)
+![Starting Screen when user guess's same letter again](../img-for-readme/startgame-winning-screen.png)
 
 #### End Screen Decisions:
 
@@ -147,7 +147,7 @@ Similarly if the users lose the game they are informed and presented with the op
 
 If the user chooses to restart the game from the losing screen, they regain 7 attempts and Hangman is reset to his default state.
 
-![Losing Screen restart](/img-for-readme/losing-screen-restart.png)
+![Losing Screen restart](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/losing-screen-restart.png)
 
 ## Features Left to Implement
 
