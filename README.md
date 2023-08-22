@@ -1,6 +1,6 @@
 # HangMan
 
-![Responsive screenshot](/img-for-readme/amiresponsive-title)
+![Responsive screenshot](/img-for-readme/amiresponsive-title.png)
 
 ## Purpose of the Project
 
@@ -90,32 +90,46 @@ After the final alterations the final application diagram looks like this:
 
 ![Final diagram](/docs/readme-images/p3-diagram-final-screen.png)
 
-[Back to top](#dad-jokes)
+[Back to top](#HangMan)
 
 ## Features 
 
-Dad Jokes consists of two features. The user chooses the option of feature from the start section of the application. The features are:
+HangMan's features:
 
- - Read and rate a joke
- - Submit a joke
+ - Submit a Name and receive feedback according to the name provided.
+ - Submit a One letter guess each round and receive visual feedback if the answer is correct or not.
+ - Action user guess'd letter if the user guess's the same letter again within a round.
+ - Present a winning or losing screen to users after completing the gussing round.
+ - Replay HangMan indefinitly if the user chooses to.
 
 ### Existing Features
 
-#### Start read and rate
+#### Submit a Name to use during gameplay:
 
-The user starts the read and rate option from the start section of the application. To read and rate the number 1 needs to be entered followed by the enter key.
+The user is presented with an input box asking the user to input their names in a specific format.
 
-![Start read and rate](/docs/readme-images/start-read-screen.png)
+![User Name Input](/img-for-readme/welcomescreen-user-name-input.png)
 
-After selection the user is presented with a random selected joke from the Google sheet. The user also sees the rating of the joke. The user is also asked to rate the joke by entering a number between 1 and 5.
+After a user has inputted a name in the specified format , users are greeted by a list of rules and the game begins.
 
-![Read and rate screen](/docs/readme-images/read-rate-screen.png)
+![User Greeting and Rules](/img-for-readme/welcomescreen-welcome-and-rules.png)
 
-When the rating has been entered the user is taken to the last section of this option. Here the user can choose to read and rate a new joke, restart the application or quit the application.
+After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
-![Read and rate screen](/docs/readme-images/end-read-rate-screen.png)
+![HangMan and Random Word Starting Screen](/img-for-readme/startgame-screen.png)
 
-If j is selected the user will receive another joke and rate, if r is pressed the application starts over from the start selection screen and q will terminate the application.
+If a user guess's a 1 character letter correctly , the user is informed and the random word is updated and the guess'd letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
+
+![Starting Screen when answer is correct](/img-for-readme/startgame-correct-guess.png)
+
+If the user guess's incorrectly , the user is informed and loses an attempt, affecting HangMan and displaying his current status to users.
+
+![Starting Screen when answer is incorrect](/img-for-readme/startgame-incorrect-guess.png)
+
+If the user guess's the same 1 letter answer they already guess'd the user loses and attempt and HangMan is affected and displayed, addionally the repeated guess'd word is displayed to the user to notify them that the letter is repeated. 
+
+![Starting Screen when user guess's word](/img-for-readme/startgame-incorrect-guess.png)
+
 
 #### Start submit joke
 

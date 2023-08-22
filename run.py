@@ -83,7 +83,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
                 print(f"Correct! {users_answer} is in the word:")
                 print(
                 "-------------------------------------------------------------"
-            )
+                )
                 time.sleep(1)
                 for x, y in enumerate(word_to_guess):
                     if y == users_answer:
@@ -188,6 +188,7 @@ def start_game(random_word):
             global hangman_state
             print("Congratulations! You've guessed the word.")
             print(stages[hangman_state])
+            print(f"The Word to guess was: {random_word}")
             player_selection = end_screen()
             restart_hangman(player_selection)
         else:
