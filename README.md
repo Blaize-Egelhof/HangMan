@@ -135,15 +135,15 @@ If the user guess's the same 1 letter answer they already guess'd the user loses
 
 If the user succesfully guess's the word , they are congratulated and given the option to either restart the game or quit entirly.
 
-![Winning Screen](/img-for-readme/startgame-winning-screen.png)
+![Winning Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-winning-screen.png)
 
 If the user chooses to play the game again , a new word is imported, players regain their 7 attempts and Hangman is reset to his default state.
 
-![Winning Screen if user restarts](/img-for-readme/startgame-winning-screen-restart.png)
+![Winning Screen if user restarts](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-winning-screen-restart.png)
 
 Similarly if the users lose the game they are informed and presented with the option to restart the game.
 
-![Losing Screen](/img-for-readme/losing-screen.png)
+![Losing Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/losing-screen.png)
 
 If the user chooses to restart the game from the losing screen, they regain 7 attempts and Hangman is reset to his default state.
 
