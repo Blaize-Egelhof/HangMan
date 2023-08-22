@@ -183,7 +183,7 @@ RECORD BUGS HERE
 
 The code has also been tested by using PEP8 Online http://pep8online.com/.
 
-All 3 python files were present were tested , no errors reported, find results below:
+All 3 python files present were tested , no errors reported, find results below:
 
 - [run.py](https://docs.python.org/3/library/random.html)
 - [random_words.py](https://docs.python.org/3/library/random.html)
