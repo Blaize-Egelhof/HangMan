@@ -213,12 +213,9 @@ Then follow these steps:
  - Login to Heroku (Create an account if necessary)
  - Click on New in the Heroku dashboard and select ”Create new app”
  - Write a name for the app and choose your region and click ”Create App”
- - In the settings tab for the new application I created two Config vars.
-   - One is named CREDS and contains the credentials key for Google Drive API
-   - One is name PORT and has the value of 8000
  - Two buildpack scripts were added: Python and Nodejs (in that order)
 
-Heroku CLI was used to deploy the project. The following steps were taken in the terminal in GitPod
+Heroku CLI was used to deploy the project. The following steps were taken in the terminal in CodeAnyWhere
 
 Deploying your app to heroku
 1. Login to heroku and enter your details.
@@ -229,7 +226,7 @@ Deploying your app to heroku
  - command: heroku git:remote -a <i>app_name</i>
 4. Add, commit and push to github
  - command: git add . && git commit -m "Deploy to Heroku via CLI"
-5. Push to both github and heroku
+5. Push to both GitHub and heroku
  - command: git push origin main
  - command: git push heroku main
 
@@ -244,7 +241,7 @@ After those steps were taken the application was deployed at the following link:
 
 ### For code inspiration, design inputs, help and advice.
 
-I have consulted numerous websites, individuals and slack channels to get support for the code. No code block is directly copied but some generates from information I gathered from other developers and sites:
+I have consulted numerous websites. No code block is directly copied but some generates from information I gathered from other developers and sites:
 
 
 ### Acknowledgment
