@@ -1,6 +1,6 @@
 # HangMan
 
-![Responsive screenshot](/img-for-readme/amiresponsive-title.png)
+![Responsive screenshot](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/amiresponsive-title.png)
 
 ## Purpose of the Project
 
@@ -107,15 +107,16 @@ HangMan's features:
 
 The user is presented with an input box asking the user to input their names in a specific format.
 
-![User Name Input](/img-for-readme/welcomescreen-user-name-input.png)
+![User Name Input](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/welcomescreen-user-name-input.png)
 
 After a user has inputted a name in the specified format , users are greeted by a list of rules and the game begins.
 
-![User Greeting and Rules](/img-for-readme/welcomescreen-welcome-and-rules.png)
+![User Greeting and Rules](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/welcomescreen-welcome-and-rules.png)
 
-After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
 #### Submit a one-letter answer per round:
+
+After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
 ![HangMan and Random Word Starting Screen](/img-for-readme/startgame-screen.png)
 
