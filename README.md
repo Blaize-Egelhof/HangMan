@@ -185,9 +185,9 @@ The code has also been tested by using PEP8 Online http://pep8online.com/.
 
 All 3 python files present were tested , no errors reported, find results below:
 
-- [run.py](https://docs.python.org/3/library/random.html)
-- [random_words.py](https://docs.python.org/3/library/random.html)
-- [hangman_visuals.py](https://docs.python.org/3/library/random.html)
+- [run.py](/readme-images/pep8-validation-run.py.png)
+- [random-words.py](/readme-images/pep8-validation-random-words.py.png)
+- [hangman-visuals.py](/readme-images/pep8-validation-hangman-visuals.png)
 
 ### Unfixed Bugs
 
