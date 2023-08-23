@@ -152,7 +152,7 @@ If the user chooses to restart the game from the losing screen, they regain 7 at
 
 ## Features Left to Implement
 
-Future versions of this application will store the users sign-in information via a database to allow for users to login and play the game, this will be implemented soley to have a leaderboard in place for my players to compete with eachother.
+Future versions of this application will store users sign-in information via a database to allow for users to login and play the game, this will be implemented soley to have a leaderboard in place for my players to compete with eachother.
 
 [Back to top](#HangMan)
 
