@@ -81,9 +81,9 @@ Dad Jokes is a console based application. For that reason no work was put in to 
 
 This is the initial diagram:
 
-![Intial diagram](/docs/readme-images/p3-diagram-screen.png)
+![Intial diagram](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/initial-flow-chart.png)
 
-During the development process a few things were changed in the diagram. The main reason for this was that I had done a flaw in the design of the Google Sheet. I had placed the calculation formula for average score on jokes inside the sheet. I never got this to work properly so that column was eventually removed and the calculation is done in the application instead.
+During the development process a few things were changed in the diagram. The main reason for this was that  during the devlopement process I realised my flow-chart logic is flawed and as such doesnt behave how a regular HangMan game should, I altered the games looping logic to constantly check if users have remaining attempts to ensure correct game logic.
 
 After the final alterations the final application diagram looks like this:
 
