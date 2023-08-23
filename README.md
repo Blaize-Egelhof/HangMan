@@ -45,7 +45,7 @@ A live version of this project can be found at the following URL: https://blaize
 
 ### User Demographic
 
-This application is ment for:
+This application is meant for:
 
  - All individuals who enjoy playing Hangman and solving word-based puzzles.
  - People looking for a simple and entertaining game to play in their free time.
@@ -120,11 +120,11 @@ After the users have revised over the rules , they can immediatly begin playing 
 
 ![HangMan and Random Word Starting Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-screen.png)
 
-If a user guess's a 1 character letter correctly , the user is informed and the random word is updated and the guess'd letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
+If a user guesses a 1 character letter correctly , the user is informed and the random word is updated and the guessed letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
 
 ![Starting Screen when answer is correct](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-correct-guess.png)
 
-If the user guess's incorrectly , the user is informed and loses an attempt, affecting HangMan and displaying his current status to users.
+If the user guesses incorrectly , the user is informed and loses an attempt, affecting HangMan and displaying his current status to users.
 
 ![Starting Screen when answer is incorrect](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-incorrect-guess.png)
 
@@ -158,7 +158,7 @@ Future versions of this application will store users sign-in information via a d
 
 ## Technologies and libraries used
 
-Main languages
+Main Languages:
 
 - [Python](https://en.wikipedia.org/wiki/Python_programming_language)
 - [MarkDown](https://en.wikipedia.org/wiki/Markdown) - Provided in the Code Institute ReadMe template
