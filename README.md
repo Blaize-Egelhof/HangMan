@@ -206,7 +206,7 @@ The live version of the project is deployed using Heroku(https://heroku.com)
 
 This is how this project was deployed using Heroku:
 
-To prepare for deployment on Heroku a requirements.txt needs to be created in the same folder as the .py file in CodeAnyWhere. This file needs to contain a list of all libraries the project needs to run as a Heroku App.
+To prepare for deployment on Heroku a requirements.txt needs to be created in the same folder as the .py file in CodeAnyWhere/Any IDE. This file needs to contain a list of all libraries the project needs to run as a Heroku App, however this application doesnt require any contents for requirments.py.
 
 Then follow these steps:
 
@@ -214,21 +214,8 @@ Then follow these steps:
  - Click on New in the Heroku dashboard and select ”Create new app”
  - Write a name for the app and choose your region and click ”Create App”
  - Two buildpack scripts were added: Python and Nodejs (in that order)
-
-Heroku CLI was used to deploy the project. The following steps were taken in the terminal in CodeAnyWhere
-
-Deploying your app to heroku
-1. Login to heroku and enter your details.
- - command: heroku login -i
-2. Get your app name from heroku.
- - command: heroku apps
-3. Set the heroku remote. (Replace <i>app_name</i> with your actual app name)
- - command: heroku git:remote -a <i>app_name</i>
-4. Add, commit and push to github
- - command: git add . && git commit -m "Deploy to Heroku via CLI"
-5. Push to both GitHub and heroku
- - command: git push origin main
- - command: git push heroku main
+ - Connect your GitHub account to Heroku and select the repository containing this application. 
+ - Enable automatic deployment to allow Heroku to re-build your application with each git push to the above mentioned repository.
 
 After those steps were taken the application was deployed at the following link: https://blaizeegelhof--hangman--p3-4273e3ce0a2b.herokuapp.com/
 
@@ -241,8 +228,7 @@ After those steps were taken the application was deployed at the following link:
 
 ### For code inspiration, design inputs, help and advice.
 
-I have consulted numerous websites. No code block is directly copied but some generates from information I gathered from other developers and sites:
-
+I have consulted numerous websites. No code block is directly copied but some generates from information I gathered from other developers and sites.
 
 ### Acknowledgment
  - [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/) Thank you for all the amazing advise during the course of this project.
@@ -250,6 +236,6 @@ I have consulted numerous websites. No code block is directly copied but some ge
 
  - [Kiteco](https://github.com/kiteco) Thank you for giving me inspiration for starting this project
 
- [Am I Responsive](http://ami.responsivedesign.is/) was used to create the image on top of this ReadMe
+ - [Am I Responsive](http://ami.responsivedesign.is/) was used to create the image on top of this ReadMe
 
 [Back to top](#HangMan)
