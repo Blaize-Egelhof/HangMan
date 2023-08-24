@@ -76,18 +76,13 @@ User stories for this Hangman application can be categorized into two sections: 
 
 ### Design diagram
 
-Dad Jokes is a console based application. For that reason no work was put in to graphical design. Instead focus was put on creating a diagram of the entire application and use that as the base for the code. The diagram also include the Google Sheet used for data storage.
-
+Hangman is a console based application. For that reason no work was put in to graphical design. Instead focus was put on creating a diagram of the entire application and use that as the base for the code.
 
 This is the initial diagram:
 
 ![Intial diagram](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/initial-flow-chart.png)
 
 During the development process a few things were changed in the diagram. The main reason for this was that  during the devlopement process I realised my flow-chart logic is flawed and as such doesnt behave how a regular HangMan game should, I altered the games looping logic to constantly check if users have remaining attempts to ensure correct game logic.
-
-After the final alterations the final application diagram looks like this:
-
-![Final diagram](/docs/readme-images/p3-diagram-final-screen.png)
 
 [Back to top](#HangMan)
 
@@ -153,6 +148,7 @@ If the user chooses to restart the game from the losing screen, they regain 7 at
 ## Features Left to Implement
 
 Future versions of this application will store users sign-in information via a database to allow for users to login and play the game, this will be implemented soley to have a leaderboard in place for my players to compete with eachother.
+In addition to the above , upon succesfully guessing a word and winning a round , I want to introduce a new stage with increasing difficulty, with each stage getting harder, in these stages the word to guess decreases in characters , increasing the likelyhood of guessing wrong.
 
 [Back to top](#HangMan)
 
@@ -162,6 +158,7 @@ Main Languages:
 
 - [Python](https://en.wikipedia.org/wiki/Python_programming_language)
 - [MarkDown](https://en.wikipedia.org/wiki/Markdown) - Provided in the Code Institute ReadMe template
+- [Git](https://git-scm.com/)
 
 Python libraries used:
 
@@ -176,19 +173,51 @@ Python libraries used:
 
 Testing has been conducted continuously during the development process. Manual testing has been conducted by my mentor [Lauren-Nicole Popich](https://www.linkedin.com/in/lauren-nicole-popich-1ab87539/). Read more about bugs during development and unfixed bugs for more information.
 
+Please refer to the below table for testing: 
+
+**TEST** | **ACTION** | **EXPECTATION** | **RESULT** 
+----------|----------|----------|----------
+Input - Name | tried entering in numbers, symbols, enter, spaces	| program prompts user to enter valid input | Works as expected
+Input - Name | tried entering in a name | game progresses | Works as expected
+Input - Letter guesses | tried entering in numbers, symbols, enter, spaces or any string longer than 1 character| program prompts user to enter valid input | Works as expected
+Input - Letter guesses | tried entering in a single letter | game progresses | Works as expected
+Input - Letter guesses | tried entering in a single guessed letter again | game prompted user that the letter was guessed already | Works as expected
+Input - Losing Screen Prompt to try again | tried entering in numbers, symbols, enter, spaces	| program prompts user to enter valid input | Works as expected
+Input - Losing Screen Prompt to try again | tried entering Y/y or N/n  | game either restarted if Y/y or exited if N/n | Works as expected
+Input - Winning Screen Prompt to try again | tried entering in numbers, symbols, enter, spaces	| program prompts user to enter valid input | Works as expected
+Input - Winning Screen Prompt to try again | tried entering Y/y or N/n  | game either restarted if Y/y or exited if N/n | Works as expected
+
 
 ### Bugs during development
-RECORD BUGS HERE 
+When developing the functions for validating users inputs, the use of multiple OR statements never worked the way I was expecting: 
+- My solution to this was using "And Not" or "And" statements together in order to achieve the desired logic. 
+
+The same winning screen was displayed both after the user guessed the word correctly and after the user lost the game. Additionally, the same losing screen was displayed after the user guessed the word correctly.
+- Adjust the code to display the correct winning and losing screens in their respective conditions. The losing screen should only be displayed when the user actually loses the game.
+
+The code in the check_guess function included a nested while loop that checked the user's input for each guess. This was redundant.
+- Removed the nested loop and simplified the logic for checking user input, focusing on validating the user's answer and handling it accordingly
+
+The initial version of the check_users_inputted_answers function allowed users to input a word with spaces and digits, as long as it was only one character long.
+- Modified the logic to ensure that the input is exactly one alphabetic character without spaces or digits.
+
+When a user guessed the same 1 letter answer again within the same round the check_guess function wouldnt correctly deduct a players attempt and adjust Hangmans state
+- Modifed the logic to correctly access the global variable used to update Hangman and the players attempts , and then display those values to users. 
+
+When a user choose to restart hangman , they appropriate global variables were not being updated which resulted in the 2nd round of Hangman either being cut short due to lack of attempts (which where carries over from the previous round instead of resetting) or the Hangman variable exceeding the index number of 8 , which broke Hangman as there isnt an index 9 on Hangman-visuals list. 
+- Modifed game logic to correctly access and update the global variables to ensure players start a new round correctly.
+
 
 ### Validator Testing 
 
 The code has also been tested by using PEP8 Online http://pep8online.com/.
 
 All 3 python files present were tested , no errors reported, find results below:
+I am aware of the warnings given for my hangman-visuals.py file, I am unable to resolve them as of yet. 
 
-- [run.py](/readme-images/pep8-validation-run.py.png)
-- [random-words.py](/readme-images/pep8-validation-random-words.py.png)
-- [hangman-visuals.py](/readme-images/pep8-validation-hangman-visuals.png)
+- [run.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-run.py.png)
+- [random-words.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-random-words.py.png)
+- [hangman-visuals.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-hangman-visuals.py.png)
 
 ### Unfixed Bugs
 
