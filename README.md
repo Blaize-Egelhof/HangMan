@@ -92,7 +92,7 @@ HangMan's features:
 
  - Submit a Name and receive feedback according to the name provided.
  - Submit a One letter guess each round and receive visual feedback if the answer is correct or not.
- - Action user guess'd letter if the user guess's the same letter again within a round.
+ - Action user guessed letter if the user guess's the same letter again within a round.
  - Present a winning or losing screen to users after completing the gussing round.
  - Replay HangMan indefinitly if the user chooses to.
 
