@@ -243,7 +243,9 @@ This is how this project was deployed using Heroku:
 To prepare for deployment on Heroku a requirements.txt needs to be created in the same folder as the .py file in CodeAnyWhere/Any IDE. This file needs to contain a list of all libraries the project needs to run as a Heroku App, however this application doesnt require any contents for requirments.py.
 
 Then follow these steps:
-
+ - Fork the repository on GitHub.
+ - Launch it in your IDE. ( [CodeAnyWhere](https://app.codeanywhere.com/) and [GitPod](https://www.gitpod.io/) were used during   the development of this project. )
+ - Perform the initial git add, commit, and push back to GitHub.
  - Login to Heroku (Create an account if necessary)
  - Click on New in the Heroku dashboard and select ”Create new app”
  - Write a name for the app and choose your region and click ”Create App”
