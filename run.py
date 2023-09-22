@@ -64,6 +64,9 @@ def check_users_inputted_name():
 
 
 def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
+    """
+    Check the user's guess against the word.
+    """
     global user_attempts
 
     if user_attempts > 0:
@@ -82,7 +85,7 @@ def check_guess(users_answer, word_to_guess, hidden_word, user_answers_list):
             if users_answer in word_to_guess:
                 print(f"Correct! {users_answer} is in the word:")
                 print(
-                "-------------------------------------------------------------"
+                 "------------------------------------------------------------"
                 )
                 time.sleep(1)
                 for x, y in enumerate(word_to_guess):
@@ -187,7 +190,7 @@ def start_game(random_word):
         if "#" not in word_place_holder:
             global hangman_state
             print("Congratulations! You've guessed the word.\n"
-            f"The Word to guess was: {random_word}")
+                  f"The Word to guess was: {random_word}")
             player_selection = end_screen()
             restart_hangman(player_selection)
         else:

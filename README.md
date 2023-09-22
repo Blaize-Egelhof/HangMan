@@ -215,7 +215,7 @@ When a user choose to restart hangman , they appropriate global variables were n
 
 ### Validator Testing 
 
-The code has also been tested by using PEP8 Online http://pep8online.com/.
+The code has also been tested by using PEP8 Online https://pep8ci.herokuapp.com/.
 
 All 3 python files present were tested , no errors reported, find results below:
 I am aware of the warnings given for my hangman-visuals.py file, I am unable to resolve them as of yet. 
