@@ -120,8 +120,8 @@ def rules_of_the_game(users_name):
     print(
         "Here are the Rules of this HangMan Game:\n\n "
         "1)You will get 7 incorrect attempts to guess the word. \n "
-        "2)Any correct guesses will not affect your 7 attempts \n "
-        "3)Guessing a repeated letter costs an attempt, harming Hangman \n "
+        "2)Any correct guesses will not affect your 7 attempts. \n "
+        "3)Guessing a repeated letter costs an attempt, harming Hangman. \n "
         "4)Guessing the word saves Mr. HangMan's life and wins the round!\n "
     )
     print(
@@ -251,12 +251,12 @@ def check_users_inputted_answers():
         users_answer = input("Please input your one-letter answer here:")
         if len(users_answer) != 1 or not users_answer.isalpha():
             print(
-                "-------------------------------------------------------------"
+                "---------------------------------------------------------"
             )
             print("Invalid input, please enter a single alphabetic character.")
             print(f"You inputted: {users_answer}")
             print(
-                "-------------------------------------------------------------"
+                "---------------------------------------------------------"
             )
         else:
             return users_answer.lower()
