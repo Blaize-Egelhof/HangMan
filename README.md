@@ -163,7 +163,12 @@ Main Languages:
 Python libraries used:
 
 - [Time](https://docs.python.org/3/library/time.html)
+
+The integration of the time library introduces short pauses between specific function executions. Its primary purpose is to enhance the overall gameplay experience, particularly when there is a sequence of crucial information for players to absorb before engaging. Without the implementation of the time library, players might inadvertently overlook vital details, resulting in a less polished gaming experience.
+
 - [Random](https://docs.python.org/3/library/random.html)
+
+The random library is crucial for selecting a word from the random_word array in the random_words.py file. It ensures that players encounter a completely different word with each attempt or round. This dynamic element adds a fresh challenge to every round, making the game more engaging, this also acts as my games "hooking" method , IE:The main way to keep users playing my game.
 
 ### Data storage
 
