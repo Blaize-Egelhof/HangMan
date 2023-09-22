@@ -1,6 +1,6 @@
 # HangMan
 
-![Responsive screenshot](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/amiresponsive-title.png)
+![Responsive screenshot](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/amiresponsive-title.png)
 
 ## Purpose of the Project
 
@@ -80,7 +80,7 @@ Hangman is a console based application. For that reason no work was put in to gr
 
 This is the initial diagram:
 
-![Intial diagram](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/initial-flow-chart.png)
+![Intial diagram](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/initial-flow-chart.png)
 
 During the development process a few things were changed in the diagram. The main reason for this was that  during the devlopement process I realised my flow-chart logic is flawed and as such doesnt behave how a regular HangMan game should, I altered the games looping logic to constantly check if users have remaining attempts to ensure correct game logic.
 
@@ -102,48 +102,48 @@ HangMan's features:
 
 The user is presented with an input box asking the user to input their names in a specific format.
 
-![User Name Input](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/welcomescreen-user-name-input.png)
+![User Name Input](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/welcomescreen-user-name-input.png)
 
 After a user has inputted a name in the specified format , users are greeted by a list of rules and the game begins.
 
-![User Greeting and Rules](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/welcomescreen-welcome-and-rules.png)
+![User Greeting and Rules](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/welcomescreen-welcome-and-rules.png)
 
 
 #### Submit a one-letter answer per round:
 
 After the users have revised over the rules , they can immediatly begin playing HangMan , users are greeted with a visual of hangman and the random word to guess for the round in "#" format to hide the word, users can guess a 1 character letter each attempt.
 
-![HangMan and Random Word Starting Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-screen.png)
+![HangMan and Random Word Starting Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-screen.png)
 
 If a user guesses a 1 character letter correctly , the user is informed and the random word is updated and the guessed letter is filled in accordingly, the user doesnt lose an attempt and HangMan is unaffected.
 
-![Starting Screen when answer is correct](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-correct-guess.png)
+![Starting Screen when answer is correct](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-correct-guess.png)
 
 If the user guesses incorrectly , the user is informed and loses an attempt, affecting HangMan and displaying his current status to users.
 
-![Starting Screen when answer is incorrect](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-incorrect-guess.png)
+![Starting Screen when answer is incorrect](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-incorrect-guess.png)
 
 If the user guess's the same 1 letter answer they already guess'd the user loses and attempt and HangMan is affected and displayed, addionally the repeated guess'd word is displayed to the user to notify them that the letter is repeated. 
 
-![Starting Screen when user guess's same letter again](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-guessed-answer-is-the-same.png)
+![Starting Screen when user guess's same letter again](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-guessed-answer-is-the-same.png)
 
 #### End Screen Decisions:
 
 If the user succesfully guess's the word , they are congratulated and given the option to either restart the game or quit entirly.
 
-![Winning Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-winning-screen.png)
+![Winning Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-winning-screen.png)
 
 If the user chooses to play the game again , a new word is imported, players regain their 7 attempts and Hangman is reset to his default state.
 
-![Winning Screen if user restarts](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/startgame-winning-screen-restart.png)
+![Winning Screen if user restarts](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/startgame-winning-screen-restart.png)
 
 Similarly if the users lose the game they are informed and presented with the option to restart the game.
 
-![Losing Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/losing-screen.png)
+![Losing Screen](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/losing-screen.png)
 
 If the user chooses to restart the game from the losing screen, they regain 7 attempts and Hangman is reset to his default state.
 
-![Losing Screen restart](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/losing-screen-restart.png)
+![Losing Screen restart](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/losing-screen-restart.png)
 
 ## Features Left to Implement
 
@@ -220,9 +220,9 @@ The code has also been tested by using PEP8 Online https://pep8ci.herokuapp.com/
 All 3 python files present were tested , no errors reported, find results below:
 I am aware of the warnings given for my hangman-visuals.py file, I am unable to resolve them as of yet. 
 
-- [run.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-run.py.png)
-- [random-words.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-random-words.py.png)
-- [hangman-visuals.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme-images/pep8-validation-hangman-visuals.py.png)
+- [run.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/pep8-validation-run.py.png)
+- [random-words.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/pep8-validation-random-words.py.png)
+- [hangman-visuals.py](https://github.com/Blaize-Egelhof/HangMan/blob/main/readme_images/pep8-validation-hangman-visuals.py.png)
 
 ### Unfixed Bugs
 
